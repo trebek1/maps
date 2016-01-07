@@ -40,7 +40,6 @@ function geocodeAddress(geocoder, resultsMap) {
  		map.fitBounds(bounds);
  
 	}
-	
 
     } 
   });
