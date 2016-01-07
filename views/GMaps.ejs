@@ -6,6 +6,7 @@
     <title>Google Maps Example</title>
     <script src="/javascripts/GMaps.js"> </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=+AIzaSyDdH6HRIQ2Wn4sQkkPDQCCMDvVzBo832f4+&signed_in=true"></script>
+
     <link rel="stylesheet" type="text/css" href="/stylesheets/GMaps.css">
   </head>
   <body>
@@ -14,7 +15,7 @@
 
   </br>
 
-  <form onsubmit="gsubmit(event)" name="gform">
+  <form onsubmit="gsubmit(event)" name="gform" id="gform">
     Search: <input id="gplace" name="gtext" type="text" placeholder ="input a place to locate">
     <input type="submit"></input>
   </form>
