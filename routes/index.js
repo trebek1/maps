@@ -14,5 +14,9 @@ router.get('/mapbox', function(req, res, next) {
   res.render('MapBox');
 });
 
+router.get('/cartodb', function(req, res, next) {
+  res.render('cartodb');
+});
+
 
 module.exports = router;

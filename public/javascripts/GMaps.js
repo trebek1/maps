@@ -1,12 +1,12 @@
 window.onload = function(){
 	(function initMap() {
   		var map = new google.maps.Map(document.getElementById('map'), {
-    	zoom: 8,
-    	center: {lat: -34.397, lng: 150.644}
+    	zoom: 12,
+    	center: {lat: 37.7749300, lng: -122.4194200}
   	});
   	
   	var geocoder = new google.maps.Geocoder();
-  	document.getElementById('gform').addEventListener('click', function() {
+  	document.getElementById('gsub').addEventListener('click', function() {
     geocodeAddress(geocoder, map);
   });
 
@@ -28,7 +28,27 @@ function geocodeAddress(geocoder, resultsMap) {
 	for(i=0;i<markers.length;i++) {
  		bounds.extend(markers[i].getPosition());
  		map.setCenter(bounds.getCenter());
- 		
+ 		// fitBounds() is a asynchronous and it is best to make Zoom manipulation with a listener defined before calling Fit Bounds
+ 		// google maps events 
+ 	// 	bounds_changed
+		// center_changed
+		// click
+		// dblclick
+		// drag
+		// dragend
+		// dragstart
+		// heading_changed
+		// idle
+		// maptypeid_changed
+		// mousemove
+		// mouseout
+		// mouseover
+		// projection_changed
+		// resize
+		// rightclick
+		// tilesloaded
+		// tilt_changed
+		// zoom_changed
  		google.maps.event.addListenerOnce(map, 'bounds_changed', function(event) {
   		map.setZoom(map.getZoom());
 
