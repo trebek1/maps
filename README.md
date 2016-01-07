@@ -1,0 +1,1 @@
+Outline of different types of mapping 
