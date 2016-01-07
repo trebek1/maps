@@ -22,5 +22,8 @@ router.get('/openlayers', function(req, res, next) {
   res.render('openlayers');
 });
 
+router.get('/mapzen', function(req, res, next) {
+  res.render('mapzen');
+});
 
 module.exports = router;

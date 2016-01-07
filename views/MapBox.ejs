@@ -2,26 +2,20 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset=utf-8 />
-<title>A simple map</title>
-<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-<script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
-<link href='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
-<link rel="stylesheet" type="text/css" href="/stylesheets/mapbox.css">
-
-</head>
-<body>
-<div id='map'></div>
-<script>
-L.mapbox.accessToken = 'pk.eyJ1IjoidHJlYmVrMSIsImEiOiJjaWo0c2ZtYzYwMDN3dGhtMzhremFtMW8wIn0.dBWgVtzgwok3cCi7p5euCg';
-var map = L.mapbox.map('map', 'mapbox.streets')
-    .setView([37.7749300,-122.4194200], 12);
-</script>
-<br/>
-<a href="/"><button>Go Back to Home Page</button></a>
-
-</body>
+	<head>
+		<meta charset=utf-8 />
+		<title>A simple map</title>
+		<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+		<script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
+		<link href='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
+		<link rel="stylesheet" type="text/css" href="/stylesheets/mapbox.css">
+		<script src="/javascripts/mapbox.js"> </script>
+	</head>
+	<body>
+		<div id='map'></div>
+		<br/>
+		<a href="/"><button>Go Back to Home Page</button></a>
+	</body>
 </html>
 
 
