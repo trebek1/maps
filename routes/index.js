@@ -18,5 +18,9 @@ router.get('/cartodb', function(req, res, next) {
   res.render('cartodb');
 });
 
+router.get('/openlayers', function(req, res, next) {
+  res.render('openlayers');
+});
+
 
 module.exports = router;
