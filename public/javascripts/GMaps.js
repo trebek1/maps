@@ -27,10 +27,18 @@ function geocodeAddress(geocoder, resultsMap) {
 	var bounds = new google.maps.LatLngBounds();
 	for(i=0;i<markers.length;i++) {
  		bounds.extend(markers[i].getPosition());
- 		console.log("This is vounds ", bounds);
  		map.setCenter(bounds.getCenter());
- 		map.setZoom(map.getZoom()-1); 
+ 		
+ 		google.maps.event.addListenerOnce(map, 'bounds_changed', function(event) {
+  		map.setZoom(map.getZoom());
+
+  		if (this.getZoom() > 15) {
+    		this.setZoom(15);
+  		}
+		});
+
  		map.fitBounds(bounds);
+ 
 	}
 	
 
