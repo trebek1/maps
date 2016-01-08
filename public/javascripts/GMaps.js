@@ -28,6 +28,7 @@ function geocodeAddress(geocoder, resultsMap) {
 	for(i=0;i<markers.length;i++) {
  		bounds.extend(markers[i].getPosition());
  		map.setCenter(bounds.getCenter());
+
  		// fitBounds() is a asynchronous and it is best to make Zoom manipulation with a listener defined before calling Fit Bounds
  		// google maps events 
  	// 	bounds_changed
@@ -49,6 +50,7 @@ function geocodeAddress(geocoder, resultsMap) {
 		// tilesloaded
 		// tilt_changed
 		// zoom_changed
+		
  		google.maps.event.addListenerOnce(map, 'bounds_changed', function(event) {
   		map.setZoom(map.getZoom());
 

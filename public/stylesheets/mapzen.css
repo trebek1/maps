@@ -7,7 +7,7 @@ html,body{
 #map-container{
 	
 	position: relative; 
-
+	/*Must be in px*/ 
 	height:500px;
 	width:500px;
 

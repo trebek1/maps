@@ -7,11 +7,11 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/gmap', function(req, res, next) {
-  res.render('GMaps');
+  res.render('gmaps');
 });
 
 router.get('/mapbox', function(req, res, next) {
-  res.render('MapBox');
+  res.render('mapbox');
 });
 
 router.get('/cartodb', function(req, res, next) {
