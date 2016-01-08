@@ -198,7 +198,33 @@ window.onload = function(){
 
 	    window.addEventListener('submit',function(event){
 	    	event.preventDefault();
-	    	var newMarker = new L.marker({lat: 37.7749300, lng: -122.4194200 }).addTo(map);
+
+	    	var request = new XMLHttpRequest(), response, trial = document.getElementById('mboxplace').value; 
+
+	    	request.onreadystatechange = function () {
+
+				if (request.readyState === 4 && request.status === 200){
+
+					response = JSON.parse(request.responseText);
+
+					var newMarker = new L.marker({lat: response.results[0][0].lat, lng: response.results[0][0].lon}).addTo(map);
+
+						map.featureLayer.on('ready', function() {
+							console.log("etagrgafagag")
+    					// featureLayer.getBounds() returns the corners of the furthest-out markers,
+    					// and map.fitBounds() makes sure that the map contains these.
+   				 		map.fitBounds(featureLayer.getBounds());
+					});
+
+				}
+			}
+
+	    	request.open("GET", "http://api.tiles.mapbox.com/v3/examples.map-zr0njcqy/geocode/"+trial+".json", true);
+			request.send();	
+
+	    	// http://api.tiles.mapbox.com/v3/{map}/geocode/{query}.json
+
+	    	
 	    	document.getElementById('mboxplace').value = '';  
 	    },false)
 
