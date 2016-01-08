@@ -1,185 +1,3 @@
-
-var geojson = [
-  
-      {
-        "type": "FeatureCollection",
-        "features": [
-          {
-            "type": "Feature",
-            "geometry": {
-              "type": "Point",
-              "coordinates": [
-                -77.034084142948,
-                38.909671288923
-              ]
-            },
-            "properties": {
-              "phoneFormatted": "(202) 234-7336",
-              "phone": "2022347336",
-              "address": "1471 P St NW",
-              "city": "Washington DC",
-              "country": "United States",
-              "crossStreet": "at 15th St NW",
-              "postalCode": "20005",
-              "state": "D.C."
-            }
-          },
-          {
-            "type": "Feature",
-            "geometry": {
-              "type": "Point",
-              "coordinates": [
-                -77.049766,
-                38.900772
-              ]
-            },
-            "properties": {
-              "phoneFormatted": "(202) 507-8357",
-              "phone": "2025078357",
-              "address": "2221 I St NW",
-              "city": "Washington DC",
-              "country": "United States",
-              "crossStreet": "at 22nd St NW",
-              "postalCode": "20037",
-              "state": "D.C."
-            }
-          },
-          {
-            "type": "Feature",
-            "geometry": {
-              "type": "Point",
-              "coordinates": [
-                -77.043929,
-                38.910525
-              ]
-            },
-            "properties": {
-              "phoneFormatted": "(202) 387-9338",
-              "phone": "2023879338",
-              "address": "1512 Connecticut Ave NW",
-              "city": "Washington DC",
-              "country": "United States",
-              "crossStreet": "at Dupont Circle",
-              "postalCode": "20036",
-              "state": "D.C."
-            }
-          },
-          {
-            "type": "Feature",
-            "geometry": {
-              "type": "Point",
-              "coordinates": [
-                -77.0672,
-                38.90516896
-              ]
-            },
-            "properties": {
-              "phoneFormatted": "(202) 337-9338",
-              "phone": "2023379338",
-              "address": "3333 M St NW",
-              "city": "Washington DC",
-              "country": "United States",
-              "crossStreet": "at 34th St NW",
-              "postalCode": "20007",
-              "state": "D.C."
-            }
-          },
-          {
-            "type": "Feature",
-            "geometry": {
-              "type": "Point",
-              "coordinates": [
-                -77.002583742142,
-                38.887041080933
-              ]
-            },
-            "properties": {
-              "phoneFormatted": "(202) 547-9338",
-              "phone": "2025479338",
-              "address": "221 Pennsylvania Ave SE",
-              "city": "Washington DC",
-              "country": "United States",
-              "crossStreet": "btwn 2nd & 3rd Sts. SE",
-              "postalCode": "20003",
-              "state": "D.C."
-            }
-          },
-          {
-            "type": "Feature",
-            "geometry": {
-              "type": "Point",
-              "coordinates": [
-                -76.933492720127,
-                38.99225245786
-              ]
-            }
-          },
-          {
-            "type": "Feature",
-            "geometry": {
-              "type": "Point",
-              "coordinates": [
-                -77.097083330154,
-                38.980979
-              ]
-            }
-          },
-          {
-            "type": "Feature",
-            "geometry": {
-              "type": "Point",
-              "coordinates": [
-                -77.359425054188,
-                38.958058116661
-              ]
-            }
-          },
-          {
-            "type": "Feature",
-            "geometry": {
-              "type": "Point",
-              "coordinates": [
-                -77.10853099823,
-                38.880100922392
-              ]
-            }
-          },
-          {
-            "type": "Feature",
-            "geometry": {
-              "type": "Point",
-              "coordinates": [
-                -75.28784,
-                40.008008
-              ]
-            }
-          },
-          {
-            "type": "Feature",
-            "geometry": {
-              "type": "Point",
-              "coordinates": [
-                -75.20121216774,
-                39.954030175164
-              ]
-            }
-            
-          },
-          {
-            "type": "Feature",
-            "geometry": {
-              "type": "Point",
-              "coordinates": [
-                -77.043959498405,
-                38.903883387232
-              ]
-            }
-            
-          }
-        ]
-      }
-];
-
 window.onload = function(){
 
 	(function(){
@@ -187,18 +5,18 @@ window.onload = function(){
 	L.mapbox.accessToken = 'pk.eyJ1IjoidHJlYmVrMSIsImEiOiJjaWo0c2ZtYzYwMDN3dGhtMzhremFtMW8wIn0.dBWgVtzgwok3cCi7p5euCg';
 	var container = document.getElementById('container');
 
-	var map = L.mapbox.map('map', 'mapbox.streets').setView([37.7749300,-122.4194200], 12); 
+	var map = L.mapbox.map('map', 'mapbox.streets').setView([37.7749300,-122.4194200], 12, {minZoom: 10, maxZoom: 10}); 
 
-	map.featureLayer.setGeoJSON(geojson);
+	//map.featureLayer.setGeoJSON(geojson);
 
-	// var newMarkerGroup = new L.LayerGroup();
+	   var newMarkerGroup = new L.LayerGroup();
+	   newMarkerGroup.addTo(map);
 	    map.on('click', function(e){
-	       var newMarker = new L.marker(e.latlng).addTo(map);     
+	       var newMarker = new L.marker(e.latlng).addTo(newMarkerGroup);     
 	    });
 
 	    window.addEventListener('submit',function(event){
 	    	event.preventDefault();
-
 	    	var request = new XMLHttpRequest(), response, trial = document.getElementById('mboxplace').value; 
 
 	    	request.onreadystatechange = function () {
@@ -206,16 +24,13 @@ window.onload = function(){
 				if (request.readyState === 4 && request.status === 200){
 
 					response = JSON.parse(request.responseText);
+					var newMarker = new L.marker({lat: response.results[0][0].lat, lng: response.results[0][0].lon}).addTo(newMarkerGroup);
+					var bnd = []; 
 
-					var newMarker = new L.marker({lat: response.results[0][0].lat, lng: response.results[0][0].lon}).addTo(map);
-
-						map.featureLayer.on('ready', function() {
-							console.log("etagrgafagag")
-    					// featureLayer.getBounds() returns the corners of the furthest-out markers,
-    					// and map.fitBounds() makes sure that the map contains these.
-   				 		map.fitBounds(featureLayer.getBounds());
-					});
-
+					for(x in newMarkerGroup._layers){
+						bnd.push([newMarkerGroup._layers[x]._latlng.lat,newMarkerGroup._layers[x]._latlng.lng]); 
+					} ; 
+					map.fitBounds(bnd);
 				}
 			}
 
@@ -223,8 +38,6 @@ window.onload = function(){
 			request.send();	
 
 	    	// http://api.tiles.mapbox.com/v3/{map}/geocode/{query}.json
-
-	    	
 	    	document.getElementById('mboxplace').value = '';  
 	    },false)
 
