@@ -1,9 +1,11 @@
 
 window.onload = function(){
-  var iconFeatures=[];
+  var iconFeatures=[], bounds = [], extent= [], subbounds = [];
   
   var vectorSource = new ol.source.Vector({
-          features: iconFeatures //add an array of features
+          features: iconFeatures,
+          maxZoom: 15,
+          minZoom: 12 //add an array of features
         });
         
         //create the style
@@ -20,19 +22,28 @@ window.onload = function(){
     var vectorLayer = new ol.layer.Vector({
           source: vectorSource,
           style: iconStyle
-         
         });
 
 var map = new ol.Map({
+    extent: extent,
     target: 'map',
+    
     layers: [
-      new ol.layer.Tile({
-        source: new ol.source.MapQuest({layer: 'sat'})
+      new ol.layer.Tile(
+      {
+        source: new ol.source.MapQuest({
+          layer: 'sat'
+          }
+        )
+
+
       }), vectorLayer
     ],
     view: new ol.View({
       center: ol.proj.fromLonLat([-122.4194200,37.7749300]),
-      zoom: 12
+      zoom: 12,
+      minZoom: 1, 
+      maxZoom: 12
     })
 
 
@@ -50,7 +61,7 @@ window.addEventListener('submit', function(event){
       if (request.readyState === 4 && request.status === 200){
 
         response = JSON.parse(request.responseText);
-
+        
         var point = [parseFloat(response[0].lon), parseFloat(response[0].lat)]
 
         var iconFeature = new ol.Feature({
@@ -63,19 +74,7 @@ window.addEventListener('submit', function(event){
 
         vectorSource.addFeature(iconFeature);
         
-        //map.getView().fitExtent(vectorSource.getExtent(), map.getSize());
-        
-        
-
-
-
-        //var newMarker = new L.marker({lat: response.results[0][0].lat, lng: response.results[0][0].lon}).addTo(newMarkerGroup);
-        //var bnd = []; 
-
-        // for(x in newMarkerGroup._layers){
-        //   bnd.push([newMarkerGroup._layers[x]._latlng.lat,newMarkerGroup._layers[x]._latlng.lng]); 
-        // } ; 
-        // map.fitBounds(bnd);
+        map.getView().fit(vectorSource.getExtent(),map.getSize());
       }
     }
 
