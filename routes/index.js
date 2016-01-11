@@ -14,8 +14,8 @@ router.get('/mapbox', function(req, res, next) {
   res.render('mapbox');
 });
 
-router.get('/cartodb', function(req, res, next) {
-  res.render('cartodb');
+router.get('/bing', function(req, res, next) {
+  res.render('bing');
 });
 
 router.get('/openlayers', function(req, res, next) {
