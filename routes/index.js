@@ -50,5 +50,8 @@ router.get('/lheatmap', function(req, res, next) {
   res.render('lheatmap');
 });
 
+router.get('/mboxplane', function(req, res, next) {
+  res.render('mboxplane');
+});
 
 module.exports = router;
