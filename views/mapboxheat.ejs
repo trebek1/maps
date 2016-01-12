@@ -9,12 +9,19 @@
 <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.css' rel='stylesheet' />
 <style>
   body { margin:0; padding:0; }
-  #map { position:absolute; top:0; bottom:0; width:700px; height: 500px; }
+  #map { width:700px; height: 500px; }
 </style>
 </head>
 <body>
 <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-heat/v0.1.3/leaflet-heat.js'></script>
-<div id='map'></div>
+<div id='container'>
+    
+    <div id='map'></div>
+
+    <br/>
+    <a href="/mapbox"><button>Go Back to MapBox</button></a>
+</div>
+
 
 <script>
 L.mapbox.accessToken = 'pk.eyJ1IjoidHJlYmVrMSIsImEiOiJjaWo0c2ZtYzYwMDN3dGhtMzhremFtMW8wIn0.dBWgVtzgwok3cCi7p5euCg';
@@ -34,5 +41,6 @@ var layer = L.mapbox.featureLayer('examples.map-zr0njcqy').on('ready', function(
     });
 });
 </script>
+
 </body>
 </html>
