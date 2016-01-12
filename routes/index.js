@@ -38,5 +38,9 @@ router.get('/olheatmap', function(req, res, next) {
   res.render('olheatmap');
 });
 
+router.get('/olmarkeroverlay', function(req, res, next) {
+  res.render('olmarkeroverlay');
+});
+
 
 module.exports = router;
