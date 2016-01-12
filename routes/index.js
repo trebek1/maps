@@ -26,4 +26,13 @@ router.get('/leaflet', function(req, res, next) {
   res.render('leaflet');
 });
 
+router.get('/gheatmap', function(req, res, next) {
+  res.render('gheatmap');
+});
+
+router.get('/gpolygons', function(req, res, next) {
+  res.render('gpolygons');
+});
+
+
 module.exports = router;
