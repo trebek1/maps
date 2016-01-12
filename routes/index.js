@@ -42,5 +42,9 @@ router.get('/olmarkeroverlay', function(req, res, next) {
   res.render('olmarkeroverlay');
 });
 
+router.get('/mapboxheat', function(req, res, next) {
+  res.render('mapboxheat');
+});
+
 
 module.exports = router;
