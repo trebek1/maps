@@ -34,5 +34,9 @@ router.get('/gpolygons', function(req, res, next) {
   res.render('gpolygons');
 });
 
+router.get('/olheatmap', function(req, res, next) {
+  res.render('olheatmap');
+});
+
 
 module.exports = router;
