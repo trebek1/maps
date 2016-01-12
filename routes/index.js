@@ -46,5 +46,9 @@ router.get('/mapboxheat', function(req, res, next) {
   res.render('mapboxheat');
 });
 
+router.get('/lheatmap', function(req, res, next) {
+  res.render('lheatmap');
+});
+
 
 module.exports = router;
