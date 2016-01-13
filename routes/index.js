@@ -58,4 +58,9 @@ router.get('/gstyles', function(req, res, next) {
   res.render('gstyles');
 });
 
+router.get('/mboxplanefly', function(req, res, next) {
+  res.render('mboxplanefly');
+});
+
+
 module.exports = router;
