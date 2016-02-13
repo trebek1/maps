@@ -10,8 +10,8 @@ router.get('/gmap', function(req, res, next) {
   res.render('gmap');
 });
 
-router.get('/mbox', function(req, res, next) {
-  res.render('mbox');
+router.get('/mapbox', function(req, res, next) {
+  res.render('mapbox');
 });
 
 router.get('/bing', function(req, res, next) {
