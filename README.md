@@ -1,1 +1,1 @@
-Outline of different types of mapping 
+Outline of different types of mapping  
