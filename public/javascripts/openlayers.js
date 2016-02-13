@@ -15,7 +15,7 @@ window.onload = function(){
         anchorXUnits: 'fraction',
         anchorYUnits: 'pixels',
         opacity: 0.75,
-        src: 'https://openlayers.org/en/v3.9.0/examples/data/icon.png'
+        src: 'http://openlayers.org/en/v3.9.0/examples/data/icon.png'
       }))
     });
 
