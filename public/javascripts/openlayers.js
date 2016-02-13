@@ -15,7 +15,7 @@ window.onload = function(){
         anchorXUnits: 'fraction',
         anchorYUnits: 'pixels',
         opacity: 0.75,
-        src: 'http://openlayers.org/en/v3.9.0/examples/data/icon.png'
+        src: 'https://openlayers.org/en/v3.9.0/examples/data/icon.png'
       }))
     });
 
@@ -54,7 +54,7 @@ window.addEventListener('submit', function(event){
   event.preventDefault();
 
       var request = new XMLHttpRequest(), response, trial = document.getElementById('olplace').value;
-      request.open("GET", " http://nominatim.openstreetmap.org/search?q="+trial+"&format=json&addressdetails=1", true);
+      request.open("GET", " https://nominatim.openstreetmap.org/search?q="+trial+"&format=json&addressdetails=1", true);
       request.send(); 
       request.onreadystatechange = function () {
 
