@@ -34,7 +34,7 @@ window.onload = function(){
 				}
 			}
 
-	    	request.open("GET", "http://api.tiles.mapbox.com/v3/examples.map-zr0njcqy/geocode/"+trial+".json", true);
+	    	request.open("GET", "https://api.tiles.mapbox.com/v3/examples.map-zr0njcqy/geocode/"+trial+".json", true);
 			request.send();	
 
 	    	// http://api.tiles.mapbox.com/v3/{map}/geocode/{query}.json
