@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/gmap', function(req, res, next) {
-  res.render('gmaps');
+  res.render('gmap');
 });
 
 router.get('/mapbox', function(req, res, next) {
