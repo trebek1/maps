@@ -20,7 +20,7 @@ window.onload = function(){
       	event.preventDefault();
       	
       	var request = new XMLHttpRequest(), response, trial = document.getElementById('bingplace').value;
-	      request.open("GET", " http://nominatim.openstreetmap.org/search?q="+trial+"&format=json&addressdetails=1", true);
+	      request.open("GET","https://nominatim.openstreetmap.org/search?q="+trial+"&format=json&addressdetails=1", true);
 	      request.send(); 
 	      request.onreadystatechange = function () {
 
